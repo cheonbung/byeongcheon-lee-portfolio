@@ -1,3 +1,12 @@
+// src/types.ts (전체 덮어쓰기)
+
+export type Language = 'KO' | 'EN';
+
+export interface BaseData {
+  period: string;
+  status: string;
+}
+
 export interface Education {
   period: string;
   degree: string;
@@ -5,6 +14,7 @@ export interface Education {
   major: string;
   status: string;
   advisor?: string;
+  advisorLabel?: string; // "지도교수" or "Advisor"
 }
 
 export interface Course {
@@ -18,9 +28,15 @@ export interface CourseSection {
   title: string;
   gpa: string;
   courses: Course[];
+  headers: {
+    period: string;
+    name: string;
+    credits: string;
+    grade: string;
+  }
 }
 
-export interface Language {
+export interface LanguageItem {
   name: string;
   testName: string;
   score: string;
@@ -42,7 +58,7 @@ export interface Publication {
   title: string;
   authors: string[];
   journalOrConference: string;
-  note?: string; // e.g., "Poster", "Best Paper Award"
+  note?: string;
 }
 
 export interface Patent {
@@ -62,12 +78,43 @@ export interface Award {
 }
 
 export interface Profile {
-  nameKo: string;
-  nameEn: string;
-  nameCn: string;
+  name: string;
+  role?: string; // e.g., "M.S. Candidate"
   birthDate: string;
   email: string;
   website: string;
   phone: string;
-  imagePlaceholder: boolean;
+  imagePath: string; // 이미지 경로 추가
+}
+
+export interface UIStrings {
+  about: string;
+  education: string;
+  publications: string;
+  patents: string;
+  awards: string;
+  coursework: string;
+  contact: string;
+  languages: string;
+  certifications: string;
+  downloadResume: string;
+  journalPapers: string;
+  confPresentations: string;
+  gradCourses: string;
+  undergradCourses: string;
+  designedBy: string;
+}
+
+export interface PortfolioData {
+  ui: UIStrings;
+  profile: Profile;
+  education: Education[];
+  gradCourses: CourseSection;
+  undergradCourses: CourseSection;
+  languages: LanguageItem[];
+  certifications: Certification[];
+  publications: Publication[];
+  conferences: Publication[];
+  patents: Patent[];
+  awards: Award[];
 }
