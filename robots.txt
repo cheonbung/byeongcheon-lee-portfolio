@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://cheonbung.github.io/byeongcheon-lee-portfolio/sitemap.xml
