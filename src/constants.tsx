@@ -1,7 +1,7 @@
 import { PortfolioData } from './types';
 
 // =============================================================================
-// COMMON DATA (Languages, Certifications, Publications, Patents, Awards)
+// COMMON DATA (Languages, Certifications, Awards - Shared unless translation needed)
 // =============================================================================
 
 const COMMON_LANGUAGES = [
@@ -19,243 +19,6 @@ const COMMON_CERTIFICATIONS = [
     date: "2021.09.24",
     name: "ADsP (Data Analysis Semi-Professional)",
     issuer: "K-Data"
-  }
-];
-
-const COMMON_PUBLICATIONS = [
-  {
-    date: "2025.12",
-    type: "Domestic" as const,
-    title: "비가시성 워터마킹과 선택적 클래스 언러닝을 통합한 이미지 생성 프레임워크",
-    authors: ["박성우", "이병천", "김상민", "채승엽", "이미영", "노승민"],
-    journalOrConference: "Journal of Platform Technology"
-  },
-  {
-    date: "2025.08",
-    type: "Domestic" as const,
-    title: "기상데이터를 결합한 경부고속도로 시계열 교통량 예측 모델링",
-    authors: ["이병천", "노승민"],
-    journalOrConference: "한국전자거래학회지"
-  },
-  {
-    date: "2025.05.30",
-    type: "SCIE" as const,
-    title: "Detection of online grooming on social networking services using a deep learning-based natural language processing model and optical character recognition",
-    authors: ["Sangmin Kim", "Byeongcheon Lee", "Jihoon Moon", "Seungmin Rho"],
-    journalOrConference: "Computer Modeling in Engineering & Sciences (CMES)"
-  },
-  {
-    date: "2024.10.15",
-    type: "SCIE" as const,
-    title: "Advancing Autoencoder Architectures for Enhanced Anomaly Detection in Multivariate Industrial Time Series",
-    authors: ["Byeongcheon Lee", "Sangmin Kim", "Muazzam Maqsood", "Jihoon Moon", "Seungmin Rho"],
-    journalOrConference: "Computers, Materials & Continua (CMC)"
-  },
-  {
-    date: "2024.06.24",
-    type: "SCIE" as const,
-    title: "A Multifaceted Approach to Stock Market Trading Using Reinforcement Learning",
-    authors: ["Yasmeen Ansari", "Saira Gillani", "Maryam Bukhari", "Byeongcheon Lee", "Muazzam Maqsood", "Seungmin Rho"],
-    journalOrConference: "IEEE Access"
-  },
-  {
-    date: "2023.05",
-    type: "Domestic" as const,
-    title: "텍스트 마이닝 기반의 국내 빅데이터 처리 및 분석 사례 연구: 아마존 웹 서비스를 중심으로",
-    authors: ["이병천", "오진영", "임수빈", "손우진", "문지훈"],
-    journalOrConference: "한국전자거래학회지"
-  },
-  {
-    date: "2023.04.20",
-    type: "SSCI" as const,
-    title: "RAID: Robust and Interpretable Daily Peak Load Forecasting via Multiple Deep Neural Networks and Shapley Values",
-    authors: ["Joohyun Jang", "Woonyoung Jeong", "Sangmin Kim", "Byeongcheon Lee", "Miyoung Lee", "Jihoon Moon"],
-    journalOrConference: "Sustainability"
-  }
-];
-
-const COMMON_CONFERENCES = [
-  {
-    date: "2025.10.25",
-    type: "International Conference" as const,
-    title: "Discriminator-Guided Unlearning A Framework for Selective Forgetting in Conditional GANs",
-    authors: ["Byeongcheon Lee", "Sangmin Kim", "Sungwoo Park", "Seungmin Rho", "Miyoung Lee"],
-    journalOrConference: "28th European Conference on Artificial Intelligence (ECAI2025)",
-    note: "Workshop Paper (TRUST-AI)"
-  },
-  {
-    date: "2025.09.15",
-    type: "International Conference" as const,
-    title: "A Framework for Machine Unlearning Using Selective Knowledge Distillation into Soft Decision Tree",
-    authors: ["Sangmin Kim", "Byeongcheon Lee", "Sungwoo Park", "Miyoung Lee", "Seungmin Rho"],
-    journalOrConference: "20th Conference on Computer Science and Intelligence Systems (FedCSIS2025)"
-  },
-  {
-    date: "2025.08.25",
-    type: "International Conference" as const,
-    title: "Machine Unlearning via Distillation into Soft Decision Tree",
-    authors: ["Sangmin Kim", "Byeongcheon Lee", "Sungwoo Park", "Seungmin Rho", "Mi Young Lee"],
-    journalOrConference: "2025 International Conference on Platform Technology and Service (PlatCon-25)"
-  },
-  {
-    date: "2025.08.25",
-    type: "International Conference" as const,
-    title: "Selective Forgetting in ACGANs via Discriminator-Guided Unlearning",
-    authors: ["Byeongcheon Lee", "Sangmin Kim", "Sungwoo Park", "Seungmin Rho", "Mi Young Lee"],
-    journalOrConference: "2025 International Conference on Platform Technology and Service (PlatCon-25)"
-  },
-  {
-    date: "2025.05.02",
-    type: "Domestic Conference" as const,
-    title: "시계열 딥러닝 모델을 활용한 한국 경부고속도로 교통량 예측 모델링",
-    authors: ["이병천", "김상민", "박성우", "이미영", "노승민"],
-    journalOrConference: "한국전자거래학회 2025 춘계학술대회"
-  },
-  {
-    date: "2025.01.15",
-    type: "International Conference" as const,
-    title: "An Online Grooming Detection System",
-    authors: ["Sangmin Kim", "Byeongcheon Lee", "Seungmin Rho"],
-    journalOrConference: "The 39th International Conference on Information Networking (ICOIN 2025)",
-    note: "Poster"
-  },
-  {
-    date: "2024.08.26",
-    type: "International Conference" as const,
-    title: "Voice Phishing Detection Using Deep Learning-Based NLP and Knowledge Distillation Techniques",
-    authors: ["Sangmin Kim", "Byeongcheon Lee", "Hyeonwoo Kim", "Seungmin Rho"],
-    journalOrConference: "2024 International Conference on Platform Technology and Service (PlatCon-24)"
-  },
-  {
-    date: "2024.08.26",
-    type: "International Conference" as const,
-    title: "Enhancing Trust and Transparency in Machine Learning with Explainable AI: Applications to the Bank Marketing Dataset",
-    authors: ["Byeongcheon Lee", "Sangmin Kim", "Hyeonwoo Kim", "Seungmin Rho"],
-    journalOrConference: "2024 International Conference on Platform Technology and Service (PlatCon-24)"
-  },
-  {
-    date: "2023.09",
-    type: "Domestic Conference" as const,
-    title: "교통안전시설물 및 보행자 유무에 따른 차량 속도와의 관계 연구",
-    authors: ["김성훈", "이병천", "김상민", "노병준"],
-    journalOrConference: "한국통신학회 제 4회 한국인공지능학술대회"
-  },
-  {
-    date: "2023.06.02",
-    type: "Domestic Conference" as const,
-    title: "강건한 일사량 예측을 위한 딥러닝과 특징 공학의 통합 접근법",
-    authors: ["소다영", "오진영", "이병천", "하휘영", "문지훈"],
-    journalOrConference: "한국정보보호학회 하계 종합학술대회"
-  },
-  {
-    date: "2023.05.19",
-    type: "Domestic Conference" as const,
-    title: "생체신호 기반의 T-SNE를 활용한 대화 내 감정 인식",
-    authors: ["임수빈", "이병천", "문지훈"],
-    journalOrConference: "한국정보처리학회 ASK 2023 춘계학술대회"
-  },
-  {
-    date: "2023.05.19",
-    type: "Domestic Conference" as const,
-    title: "전이 학습 및 SHAP 분석을 활용한 트랜스포머 기반 감정 분류 모델",
-    authors: ["임수빈", "이병천", "문지훈"],
-    journalOrConference: "한국정보처리학회 ASK 2023 춘계학술대회"
-  },
-  {
-    date: "2023.05.19",
-    type: "Domestic Conference" as const,
-    title: "얼굴 표정 인식 기술의 동향과 향후 방향: 텍스트 마이닝 분석을 중심으로",
-    authors: ["전인수", "이병천", "문지훈"],
-    journalOrConference: "한국정보처리학회 ASK 2023 춘계학술대회"
-  },
-  {
-    date: "2023.05.19",
-    type: "Domestic Conference" as const,
-    title: "태양 위치 정보를 고려한 AutoML 기반의 태양광 발전량 예측",
-    authors: ["오진영", "소다영", "이병천", "문지훈"],
-    journalOrConference: "한국정보처리학회 ASK 2023 춘계학술대회",
-    note: "학부생 논문 경진대회 수상 (동상)"
-  },
-  {
-    date: "2023.02.13",
-    type: "International Conference" as const,
-    title: "A Literature Review on AWS-Based Cloud Computing: A Case in South Korea",
-    authors: ["B. Lee", "J. Oh", "W. Shon", "J. Moon"],
-    journalOrConference: "2023 IEEE International Conference on Big Data and Smart Computing (BigComp2023)",
-    note: "Workshop Paper"
-  },
-  {
-    date: "2022.12.16",
-    type: "Domestic Conference" as const,
-    title: "Multimedia Big Data Analytics: A Survey and Data Analytics for Bioinformatics and Biomedical Discoveries",
-    authors: ["B. Lee", "E. Kim", "Y. Lee", "J. Seo", "J. Moon"],
-    journalOrConference: "한국전자거래학회 2022 추계학술대회",
-    note: "우수논문상 수상"
-  },
-  {
-    date: "2022.12.16",
-    type: "Domestic Conference" as const,
-    title: "Towards a Big Data System in Public Health: A Case Study of AWS and Data Visualization for Personalized Services",
-    authors: ["J. Seo", "J. Jang", "T. Han", "B. Lee", "J. Moon"],
-    journalOrConference: "한국전자거래학회 2022 추계학술대회"
-  },
-  {
-    date: "2022.01.14",
-    type: "Domestic Conference" as const,
-    title: "감성대화 말뭉치로 보는 청소년의 문제 도출",
-    authors: ["김상민", "이병천", "우지영"],
-    journalOrConference: "한국컴퓨터정보학회 2022 동계학술대회"
-  }
-];
-
-const COMMON_PATENTS = [
-  {
-    date: "2025-09-17",
-    number: "10-2025-0133282",
-    type: "Domestic" as const,
-    title: "판별기 기반 조건부 생성적 적대 신경망에서의 선택적 데이터 망각 방법 및 시스템",
-    inventors: ["이미영", "노승민", "이병천", "김상민", "박성우"],
-    applicant: "중앙대학교 산학협력단"
-  },
-  {
-    date: "2025-08-08",
-    number: "10-2025-0109528",
-    type: "Domestic" as const,
-    title: "선택적 지식 증류를 이용한 소프트 의사결정 트리 기반 머신 언러닝 방법, 이를 수행하는 장치 및 컴퓨터 프로그램",
-    inventors: ["이미영", "노승민", "이병천", "김상민", "박성우"],
-    applicant: "중앙대학교 산학협력단"
-  },
-  {
-    date: "2025-04-10",
-    number: "PCT/KR2025/004854",
-    type: "PCT" as const,
-    title: "통화 중 실시간으로 보이스피싱의 맥락을 인식하는 장치 및 동작 방법",
-    inventors: ["노병준", "김상민", "이병천", "정운영"],
-    applicant: "순천향대학교 산학협력단"
-  },
-  {
-    date: "2024-11-14",
-    number: "10-2024-0161756",
-    type: "Domestic" as const,
-    title: "다변수 산업 사물 단말 관련 시계열 데이터에서 딥 러닝 모델을 기초로 한, 이상 탐지 방법 그 장치",
-    inventors: ["김상민", "이병천", "문지훈", "노승민", "무아잠 마쿠수드"],
-    applicant: "중앙대학교 산학협력단"
-  },
-  {
-    date: "2024-11-14",
-    number: "10-2024-0161744",
-    type: "Domestic" as const,
-    title: "딥 러닝 기반 자연어 처리 모델을 활용한, 온라인 그루밍 범죄 탐지 방법 및 그 장치",
-    inventors: ["김상민", "이병천", "문지훈", "노승민", "무아잠 마쿠수드"],
-    applicant: "중앙대학교 산학협력단"
-  },
-  {
-    date: "2024-04-11",
-    number: "10-2024-0048439",
-    type: "Domestic" as const,
-    title: "통화 중 실시간으로 보이스피싱의 맥락을 인식하는 장치 및 동작 방법",
-    inventors: ["노병준", "김상민", "이병천", "정운영"],
-    applicant: "순천향대학교 산학협력단"
   }
 ];
 
@@ -278,7 +41,7 @@ const COMMON_AWARDS = [
 ];
 
 // =============================================================================
-// KOREAN DATA (DATA_KO)
+// KOREAN DATA (DATA_KO) - Shows Korean + English Titles
 // =============================================================================
 
 export const DATA_KO: PortfolioData = {
@@ -380,14 +143,245 @@ export const DATA_KO: PortfolioData = {
   },
   languages: COMMON_LANGUAGES,
   certifications: COMMON_CERTIFICATIONS,
-  publications: COMMON_PUBLICATIONS,
-  conferences: COMMON_CONFERENCES,
-  patents: COMMON_PATENTS,
-  awards: COMMON_AWARDS
+  awards: COMMON_AWARDS,
+  publications: [
+    {
+      date: "2025.12",
+      type: "Domestic",
+      title: "비가시성 워터마킹과 선택적 클래스 언러닝을 통합한 이미지 생성 프레임워크\n(An Image Generation Framework Integrating Invisible Watermarking and Selective Class Unlearning)",
+      authors: ["박성우", "이병천", "김상민", "채승엽", "이미영", "노승민"],
+      journalOrConference: "Journal of Platform Technology"
+    },
+    {
+      date: "2025.08",
+      type: "Domestic",
+      title: "기상데이터를 결합한 경부고속도로 시계열 교통량 예측 모델링\n(Time Series-Based Traffic Volume Forecasting on the Gyeongbu Expressway with Weather Data)",
+      authors: ["이병천", "노승민"],
+      journalOrConference: "한국전자거래학회지"
+    },
+    {
+      date: "2025.05.30",
+      type: "SCIE",
+      title: "Detection of online grooming on social networking services using a deep learning-based natural language processing model and optical character recognition",
+      authors: ["Sangmin Kim", "Byeongcheon Lee", "Jihoon Moon", "Seungmin Rho"],
+      journalOrConference: "Computer Modeling in Engineering & Sciences (CMES)"
+    },
+    {
+      date: "2024.10.15",
+      type: "SCIE",
+      title: "Advancing Autoencoder Architectures for Enhanced Anomaly Detection in Multivariate Industrial Time Series",
+      authors: ["Byeongcheon Lee", "Sangmin Kim", "Muazzam Maqsood", "Jihoon Moon", "Seungmin Rho"],
+      journalOrConference: "Computers, Materials & Continua (CMC)"
+    },
+    {
+      date: "2024.06.24",
+      type: "SCIE",
+      title: "A Multifaceted Approach to Stock Market Trading Using Reinforcement Learning",
+      authors: ["Yasmeen Ansari", "Saira Gillani", "Maryam Bukhari", "Byeongcheon Lee", "Muazzam Maqsood", "Seungmin Rho"],
+      journalOrConference: "IEEE Access"
+    },
+    {
+      date: "2023.05",
+      type: "Domestic",
+      title: "텍스트 마이닝 기반의 국내 빅데이터 처리 및 분석 사례 연구: 아마존 웹 서비스를 중심으로\n(A Case Study on Big Data Processing and Analysis Based on Text Mining: Focusing on Amazon Web Services in South Korea)",
+      authors: ["이병천", "오진영", "임수빈", "손우진", "문지훈"],
+      journalOrConference: "한국전자거래학회지"
+    },
+    {
+      date: "2023.04.20",
+      type: "SSCI",
+      title: "RAID: Robust and Interpretable Daily Peak Load Forecasting via Multiple Deep Neural Networks and Shapley Values",
+      authors: ["Joohyun Jang", "Woonyoung Jeong", "Sangmin Kim", "Byeongcheon Lee", "Miyoung Lee", "Jihoon Moon"],
+      journalOrConference: "Sustainability"
+    }
+  ],
+  conferences: [
+    {
+      date: "2025.10.25",
+      type: "International Conference",
+      title: "패턴 보존 기반 생성 모델의 클래스 선택적 언러닝 프레임워크\n(A Class-Selective Unlearning Framework for Pattern-Preserving Generative Models)",
+      authors: ["Byeongcheon Lee", "Sangmin Kim", "Sungwoo Park", "Seungmin Rho", "Miyoung Lee"],
+      journalOrConference: "28th European Conference on Artificial Intelligence (ECAI2025)",
+      note: "Workshop Paper (TRUST-AI)"
+    },
+    {
+      date: "2025.09.15",
+      type: "International Conference",
+      title: "A Framework for Machine Unlearning Using Selective Knowledge Distillation into Soft Decision Tree",
+      authors: ["Sangmin Kim", "Byeongcheon Lee", "Sungwoo Park", "Miyoung Lee", "Seungmin Rho"],
+      journalOrConference: "20th Conference on Computer Science and Intelligence Systems (FedCSIS2025)"
+    },
+    {
+      date: "2025.08.25",
+      type: "International Conference",
+      title: "Machine Unlearning via Distillation into Soft Decision Tree",
+      authors: ["Sangmin Kim", "Byeongcheon Lee", "Sungwoo Park", "Seungmin Rho", "Mi Young Lee"],
+      journalOrConference: "2025 International Conference on Platform Technology and Service (PlatCon-25)"
+    },
+    {
+      date: "2025.08.25",
+      type: "International Conference",
+      title: "Selective Forgetting in ACGANs via Discriminator-Guided Unlearning",
+      authors: ["Byeongcheon Lee", "Sangmin Kim", "Sungwoo Park", "Seungmin Rho", "Mi Young Lee"],
+      journalOrConference: "2025 International Conference on Platform Technology and Service (PlatCon-25)"
+    },
+    {
+      date: "2025.05.02",
+      type: "Domestic Conference",
+      title: "시계열 딥러닝 모델을 활용한 한국 경부고속도로 교통량 예측 모델링\n(Traffic Volume Forecasting On The Gyeongbu Expressway Using Time Series Deep Learning Models)",
+      authors: ["이병천", "김상민", "박성우", "이미영", "노승민"],
+      journalOrConference: "한국전자거래학회 2025 춘계학술대회"
+    },
+    {
+      date: "2025.01.15",
+      type: "International Conference",
+      title: "An Online Grooming Detection System",
+      authors: ["Sangmin Kim", "Byeongcheon Lee", "Seungmin Rho"],
+      journalOrConference: "The 39th International Conference on Information Networking (ICOIN 2025)",
+      note: "Poster"
+    },
+    {
+      date: "2024.08.26",
+      type: "International Conference",
+      title: "Voice Phishing Detection Using Deep Learning-Based NLP and Knowledge Distillation Techniques",
+      authors: ["Sangmin Kim", "Byeongcheon Lee", "Hyeonwoo Kim", "Seungmin Rho"],
+      journalOrConference: "2024 International Conference on Platform Technology and Service (PlatCon-24)"
+    },
+    {
+      date: "2024.08.26",
+      type: "International Conference",
+      title: "Enhancing Trust and Transparency in Machine Learning with Explainable AI: Applications to the Bank Marketing Dataset",
+      authors: ["Byeongcheon Lee", "Sangmin Kim", "Hyeonwoo Kim", "Seungmin Rho"],
+      journalOrConference: "2024 International Conference on Platform Technology and Service (PlatCon-24)"
+    },
+    {
+      date: "2023.09",
+      type: "Domestic Conference",
+      title: "교통안전시설물 및 보행자 유무에 따른 차량 속도와의 관계 연구\n(A Study on the Relationship between Vehicle Speed and the Presence of Traffic Safety Infrastructure and Pedestrians)",
+      authors: ["김성훈", "이병천", "김상민", "노병준"],
+      journalOrConference: "한국통신학회 제 4회 한국인공지능학술대회"
+    },
+    {
+      date: "2023.06.02",
+      type: "Domestic Conference",
+      title: "강건한 일사량 예측을 위한 딥러닝과 특징 공학의 통합 접근법\n(An Integrated Approach of Deep Learning and Feature Engineering for Robust Solar Irradiance Forecasting)",
+      authors: ["소다영", "오진영", "이병천", "하휘영", "문지훈"],
+      journalOrConference: "한국정보보호학회 하계 종합학술대회"
+    },
+    {
+      date: "2023.05.19",
+      type: "Domestic Conference",
+      title: "생체신호 기반의 T-SNE 를 활용한 대화 내 감정 인식\n(Physiological Signal-Based Emotion Recognition in Conversations Using T-SNE)",
+      authors: ["임수빈", "이병천", "문지훈"],
+      journalOrConference: "한국정보처리학회 ASK 2023 춘계학술대회"
+    },
+    {
+      date: "2023.05.19",
+      type: "Domestic Conference",
+      title: "전이 학습 및 SHAP 분석을 활용한 트랜스포머 기반 감정 분류 모델\n(Transformer-Based Emotion Classification Model Using Transfer Learning and SHAP Analysis)",
+      authors: ["임수빈", "이병천", "문지훈"],
+      journalOrConference: "한국정보처리학회 ASK 2023 춘계학술대회"
+    },
+    {
+      date: "2023.05.19",
+      type: "Domestic Conference",
+      title: "얼굴 표정 인식 기술의 동향과 향후 방향: 텍스트 마이닝 분석을 중심으로\n(Trends and Future Directions in Facial Expression Recognition Technology: A Text Mining Analysis Approach)",
+      authors: ["전인수", "이병천", "문지훈"],
+      journalOrConference: "한국정보처리학회 ASK 2023 춘계학술대회"
+    },
+    {
+      date: "2023.05.19",
+      type: "Domestic Conference",
+      title: "태양 위치 정보를 고려한 AutoML 기반의 태양광 발전량 예측\n(Automated Machine Learning-Based Solar PV Forecasting Considering Solar Position Information)",
+      authors: ["오진영", "소다영", "이병천", "문지훈"],
+      journalOrConference: "한국정보처리학회 ASK 2023 춘계학술대회",
+      note: "학부생 논문 경진대회 수상 (동상)"
+    },
+    {
+      date: "2023.02.13",
+      type: "International Conference",
+      title: "A Literature Review on AWS-Based Cloud Computing: A Case in South Korea",
+      authors: ["B. Lee", "J. Oh", "W. Shon", "J. Moon"],
+      journalOrConference: "2023 IEEE International Conference on Big Data and Smart Computing (BigComp2023)",
+      note: "Workshop Paper"
+    },
+    {
+      date: "2022.12.16",
+      type: "Domestic Conference",
+      title: "Multimedia Big Data Analytics: A Survey and Data Analytics for Bioinformatics and Biomedical Discoveries",
+      authors: ["B. Lee", "E. Kim", "Y. Lee", "J. Seo", "J. Moon"],
+      journalOrConference: "한국전자거래학회 2022 추계학술대회",
+      note: "우수논문상 수상"
+    },
+    {
+      date: "2022.12.16",
+      type: "Domestic Conference",
+      title: "Towards a Big Data System in Public Health: A Case Study of AWS and Data Visualization for Personalized Services",
+      authors: ["J. Seo", "J. Jang", "T. Han", "B. Lee", "J. Moon"],
+      journalOrConference: "한국전자거래학회 2022 추계학술대회"
+    },
+    {
+      date: "2022.01.14",
+      type: "Domestic Conference",
+      title: "감성대화 말뭉치로 보는 청소년의 문제 도출\n(Identifying issues facing youth through emotional dialogue corpus)",
+      authors: ["김상민", "이병천", "우지영"],
+      journalOrConference: "한국컴퓨터정보학회 2022 동계학술대회"
+    }
+  ],
+  patents: [
+    {
+      date: "2025-09-17",
+      number: "10-2025-0133282",
+      type: "Domestic",
+      title: "판별기 기반 조건부 생성적 적대 신경망에서의 선택적 데이터 망각 방법 및 시스템\n(Method for selective data forgetting in discriminator-based conditional generative adversarial networks)",
+      inventors: ["이미영", "노승민", "이병천", "김상민", "박성우"],
+      applicant: "중앙대학교 산학협력단"
+    },
+    {
+      date: "2025-08-08",
+      number: "10-2025-0109528",
+      type: "Domestic",
+      title: "선택적 지식 증류를 이용한 소프트 의사결정 트리 기반 머신 언러닝 방법, 이를 수행하는 장치 및 컴퓨터 프로그램\n(Machine unlearning method based on soft decision tree using selective knowledge distillation, apparatus and computer program for performing the method)",
+      inventors: ["이미영", "노승민", "이병천", "김상민", "박성우"],
+      applicant: "중앙대학교 산학협력단"
+    },
+    {
+      date: "2025-04-10",
+      number: "PCT/KR2025/004854",
+      type: "PCT",
+      title: "통화 중 실시간으로 보이스피싱의 맥락을 인식하는 장치 및 동작 방법\n(APPARATUS AND METHOD FOR REAL-TIME RECOGNITION OF VOICE PHISHING CONTEXT DURING A CALL)",
+      inventors: ["노병준", "김상민", "이병천", "정운영"],
+      applicant: "순천향대학교 산학협력단"
+    },
+    {
+      date: "2024-11-14",
+      number: "10-2024-0161756",
+      type: "Domestic",
+      title: "다변수 산업 사물 단말 관련 시계열 데이터에서 딥 러닝 모델을 기초로 한, 이상 탐지 방법 그 장치\n(METHOD FOR ANOMALY DETECTING BASED ON DEEP LEARNING MODEL IN TIME SERIES DATA RELATED TO MULTIVARIATE INDUSTRIAL THINGS TERMINALS, AND APPARATUS THEREOF)",
+      inventors: ["김상민", "이병천", "문지훈", "노승민", "무아잠 마쿠수드"],
+      applicant: "중앙대학교 산학협력단"
+    },
+    {
+      date: "2024-11-14",
+      number: "10-2024-0161744",
+      type: "Domestic",
+      title: "딥 러닝 기반 자연어 처리 모델을 활용한, 온라인 그루밍 범죄 탐지 방법 및 그 장치\n(METHOD FOR DETECTING ONLINE GROOMING CRIMES USING DEEP LEARNING-BASED NATURAL LANGUAGE PROCESSING MODELS, AND APPARATUS THEREOF)",
+      inventors: ["김상민", "이병천", "문지훈", "노승민", "무아잠 마쿠수드"],
+      applicant: "중앙대학교 산학협력단"
+    },
+    {
+      date: "2024-04-11",
+      number: "10-2024-0048439",
+      type: "Domestic",
+      title: "통화 중 실시간으로 보이스피싱의 맥락을 인식하는 장치 및 동작 방법",
+      inventors: ["노병준", "김상민", "이병천", "정운영"],
+      applicant: "순천향대학교 산학협력단"
+    }
+  ]
 };
 
 // =============================================================================
-// ENGLISH DATA (DATA_EN)
+// ENGLISH DATA (DATA_EN) - Shows English Titles Only
 // =============================================================================
 
 export const DATA_EN: PortfolioData = {
@@ -489,8 +483,239 @@ export const DATA_EN: PortfolioData = {
   },
   languages: COMMON_LANGUAGES,
   certifications: COMMON_CERTIFICATIONS,
-  publications: COMMON_PUBLICATIONS,
-  conferences: COMMON_CONFERENCES,
-  patents: COMMON_PATENTS,
-  awards: COMMON_AWARDS
+  awards: COMMON_AWARDS,
+  publications: [
+    {
+      date: "2025.12",
+      type: "Domestic",
+      title: "An Image Generation Framework Integrating Invisible Watermarking and Selective Class Unlearning",
+      authors: ["Sungwoo Park", "Byeongcheon Lee", "Sangmin Kim", "Seungyeop Chae", "Miyoung Lee", "Seungmin Rho"],
+      journalOrConference: "Journal of Platform Technology"
+    },
+    {
+      date: "2025.08",
+      type: "Domestic",
+      title: "Time Series-Based Traffic Volume Forecasting on the Gyeongbu Expressway with Weather Data",
+      authors: ["Byeongcheon Lee", "Seungmin Rho"],
+      journalOrConference: "Journal of The Korea Society for Electronic Commerce"
+    },
+    {
+      date: "2025.05.30",
+      type: "SCIE",
+      title: "Detection of online grooming on social networking services using a deep learning-based natural language processing model and optical character recognition",
+      authors: ["Sangmin Kim", "Byeongcheon Lee", "Jihoon Moon", "Seungmin Rho"],
+      journalOrConference: "Computer Modeling in Engineering & Sciences (CMES)"
+    },
+    {
+      date: "2024.10.15",
+      type: "SCIE",
+      title: "Advancing Autoencoder Architectures for Enhanced Anomaly Detection in Multivariate Industrial Time Series",
+      authors: ["Byeongcheon Lee", "Sangmin Kim", "Muazzam Maqsood", "Jihoon Moon", "Seungmin Rho"],
+      journalOrConference: "Computers, Materials & Continua (CMC)"
+    },
+    {
+      date: "2024.06.24",
+      type: "SCIE",
+      title: "A Multifaceted Approach to Stock Market Trading Using Reinforcement Learning",
+      authors: ["Yasmeen Ansari", "Saira Gillani", "Maryam Bukhari", "Byeongcheon Lee", "Muazzam Maqsood", "Seungmin Rho"],
+      journalOrConference: "IEEE Access"
+    },
+    {
+      date: "2023.05",
+      type: "Domestic",
+      title: "A Case Study on Big Data Processing and Analysis Based on Text Mining: Focusing on Amazon Web Services in South Korea",
+      authors: ["Byeongcheon Lee", "Jinyoung Oh", "Subin Lim", "Woojin Shon", "Jihoon Moon"],
+      journalOrConference: "Journal of The Korea Society for Electronic Commerce"
+    },
+    {
+      date: "2023.04.20",
+      type: "SSCI",
+      title: "RAID: Robust and Interpretable Daily Peak Load Forecasting via Multiple Deep Neural Networks and Shapley Values",
+      authors: ["Joohyun Jang", "Woonyoung Jeong", "Sangmin Kim", "Byeongcheon Lee", "Miyoung Lee", "Jihoon Moon"],
+      journalOrConference: "Sustainability"
+    }
+  ],
+  conferences: [
+    {
+      date: "2025.10.25",
+      type: "International Conference",
+      title: "A Class-Selective Unlearning Framework for Pattern-Preserving Generative Models",
+      authors: ["Byeongcheon Lee", "Sangmin Kim", "Sungwoo Park", "Seungmin Rho", "Miyoung Lee"],
+      journalOrConference: "28th European Conference on Artificial Intelligence (ECAI2025)",
+      note: "Workshop Paper (TRUST-AI)"
+    },
+    {
+      date: "2025.09.15",
+      type: "International Conference",
+      title: "A Framework for Machine Unlearning Using Selective Knowledge Distillation into Soft Decision Tree",
+      authors: ["Sangmin Kim", "Byeongcheon Lee", "Sungwoo Park", "Miyoung Lee", "Seungmin Rho"],
+      journalOrConference: "20th Conference on Computer Science and Intelligence Systems (FedCSIS2025)"
+    },
+    {
+      date: "2025.08.25",
+      type: "International Conference",
+      title: "Machine Unlearning via Distillation into Soft Decision Tree",
+      authors: ["Sangmin Kim", "Byeongcheon Lee", "Sungwoo Park", "Seungmin Rho", "Mi Young Lee"],
+      journalOrConference: "2025 International Conference on Platform Technology and Service (PlatCon-25)"
+    },
+    {
+      date: "2025.08.25",
+      type: "International Conference",
+      title: "Selective Forgetting in ACGANs via Discriminator-Guided Unlearning",
+      authors: ["Byeongcheon Lee", "Sangmin Kim", "Sungwoo Park", "Seungmin Rho", "Mi Young Lee"],
+      journalOrConference: "2025 International Conference on Platform Technology and Service (PlatCon-25)"
+    },
+    {
+      date: "2025.05.02",
+      type: "Domestic Conference",
+      title: "Traffic Volume Forecasting On The Gyeongbu Expressway Using Time Series Deep Learning Models",
+      authors: ["Byeongcheon Lee", "Sangmin Kim", "Sungwoo Park", "Miyoung Lee", "Seungmin Rho"],
+      journalOrConference: "The Korea Society for Electronic Commerce Spring Conference 2025"
+    },
+    {
+      date: "2025.01.15",
+      type: "International Conference",
+      title: "An Online Grooming Detection System",
+      authors: ["Sangmin Kim", "Byeongcheon Lee", "Seungmin Rho"],
+      journalOrConference: "The 39th International Conference on Information Networking (ICOIN 2025)",
+      note: "Poster"
+    },
+    {
+      date: "2024.08.26",
+      type: "International Conference",
+      title: "Voice Phishing Detection Using Deep Learning-Based NLP and Knowledge Distillation Techniques",
+      authors: ["Sangmin Kim", "Byeongcheon Lee", "Hyeonwoo Kim", "Seungmin Rho"],
+      journalOrConference: "2024 International Conference on Platform Technology and Service (PlatCon-24)"
+    },
+    {
+      date: "2024.08.26",
+      type: "International Conference",
+      title: "Enhancing Trust and Transparency in Machine Learning with Explainable AI: Applications to the Bank Marketing Dataset",
+      authors: ["Byeongcheon Lee", "Sangmin Kim", "Hyeonwoo Kim", "Seungmin Rho"],
+      journalOrConference: "2024 International Conference on Platform Technology and Service (PlatCon-24)"
+    },
+    {
+      date: "2023.09",
+      type: "Domestic Conference",
+      title: "A Study on the Relationship between Vehicle Speed and the Presence of Traffic Safety Infrastructure and Pedestrians",
+      authors: ["Seonghun Kim", "Byeongcheon Lee", "Sangmin Kim", "Byeongjun Noh"],
+      journalOrConference: "KICS The 4th Korea Artificial Intelligence Conference"
+    },
+    {
+      date: "2023.06.02",
+      type: "Domestic Conference",
+      title: "An Integrated Approach of Deep Learning and Feature Engineering for Robust Solar Irradiance Forecasting",
+      authors: ["Dayoung So", "Jinyoung Oh", "Byeongcheon Lee", "Hwiyoung Ha", "Jihoon Moon"],
+      journalOrConference: "KIISC Summer Conference 2023"
+    },
+    {
+      date: "2023.05.19",
+      type: "Domestic Conference",
+      title: "Physiological Signal-Based Emotion Recognition in Conversations Using T-SNE",
+      authors: ["Subin Lim", "Byeongcheon Lee", "Jihoon Moon"],
+      journalOrConference: "KIPS ASK 2023 Spring Conference"
+    },
+    {
+      date: "2023.05.19",
+      type: "Domestic Conference",
+      title: "Transformer-Based Emotion Classification Model Using Transfer Learning and SHAP Analysis",
+      authors: ["Subin Lim", "Byeongcheon Lee", "Jihoon Moon"],
+      journalOrConference: "KIPS ASK 2023 Spring Conference"
+    },
+    {
+      date: "2023.05.19",
+      type: "Domestic Conference",
+      title: "Trends and Future Directions in Facial Expression Recognition Technology: A Text Mining Analysis Approach",
+      authors: ["Insu Jeon", "Byeongcheon Lee", "Jihoon Moon"],
+      journalOrConference: "KIPS ASK 2023 Spring Conference"
+    },
+    {
+      date: "2023.05.19",
+      type: "Domestic Conference",
+      title: "Automated Machine Learning-Based Solar PV Forecasting Considering Solar Position Information",
+      authors: ["Jinyoung Oh", "Dayoung So", "Byeongcheon Lee", "Jihoon Moon"],
+      journalOrConference: "KIPS ASK 2023 Spring Conference",
+      note: "Undergraduate Paper Competition Award (Bronze)"
+    },
+    {
+      date: "2023.02.13",
+      type: "International Conference",
+      title: "A Literature Review on AWS-Based Cloud Computing: A Case in South Korea",
+      authors: ["B. Lee", "J. Oh", "W. Shon", "J. Moon"],
+      journalOrConference: "2023 IEEE International Conference on Big Data and Smart Computing (BigComp2023)",
+      note: "Workshop Paper"
+    },
+    {
+      date: "2022.12.16",
+      type: "Domestic Conference",
+      title: "Multimedia Big Data Analytics: A Survey and Data Analytics for Bioinformatics and Biomedical Discoveries",
+      authors: ["B. Lee", "E. Kim", "Y. Lee", "J. Seo", "J. Moon"],
+      journalOrConference: "The Korea Society for Electronic Commerce Fall Conference 2022",
+      note: "Best Paper Award"
+    },
+    {
+      date: "2022.12.16",
+      type: "Domestic Conference",
+      title: "Towards a Big Data System in Public Health: A Case Study of AWS and Data Visualization for Personalized Services",
+      authors: ["J. Seo", "J. Jang", "T. Han", "B. Lee", "J. Moon"],
+      journalOrConference: "The Korea Society for Electronic Commerce Fall Conference 2022"
+    },
+    {
+      date: "2022.01.14",
+      type: "Domestic Conference",
+      title: "Identifying issues facing youth through emotional dialogue corpus",
+      authors: ["Sangmin Kim", "Byeongcheon Lee", "Jiyoung Woo"],
+      journalOrConference: "KSCI Winter Conference 2022"
+    }
+  ],
+  patents: [
+    {
+      date: "2025-09-17",
+      number: "10-2025-0133282",
+      type: "Domestic",
+      title: "Method for selective data forgetting in discriminator-based conditional generative adversarial networks",
+      inventors: ["Miyoung Lee", "Seungmin Rho", "Byeongcheon Lee", "Sangmin Kim", "Sungwoo Park"],
+      applicant: "Chung-Ang University Industry-Academic Cooperation Foundation"
+    },
+    {
+      date: "2025-08-08",
+      number: "10-2025-0109528",
+      type: "Domestic",
+      title: "Machine unlearning method based on soft decision tree using selective knowledge distillation, apparatus and computer program for performing the method",
+      inventors: ["Miyoung Lee", "Seungmin Rho", "Byeongcheon Lee", "Sangmin Kim", "Sungwoo Park"],
+      applicant: "Chung-Ang University Industry-Academic Cooperation Foundation"
+    },
+    {
+      date: "2025-04-10",
+      number: "PCT/KR2025/004854",
+      type: "PCT",
+      title: "APPARATUS AND METHOD FOR REAL-TIME RECOGNITION OF VOICE PHISHING CONTEXT DURING A CALL",
+      inventors: ["Byeongjun Noh", "Sangmin Kim", "Byeongcheon Lee", "Woonyoung Jeong"],
+      applicant: "Soonchunhyang University Industry-Academic Cooperation Foundation"
+    },
+    {
+      date: "2024-11-14",
+      number: "10-2024-0161756",
+      type: "Domestic",
+      title: "METHOD FOR ANOMALY DETECTING BASED ON DEEP LEARNING MODEL IN TIME SERIES DATA RELATED TO MULTIVARIATE INDUSTRIAL THINGS TERMINALS, AND APPARATUS THEREOF",
+      inventors: ["Sangmin Kim", "Byeongcheon Lee", "Jihoon Moon", "Seungmin Rho", "Muazzam Maqsood"],
+      applicant: "Chung-Ang University Industry-Academic Cooperation Foundation"
+    },
+    {
+      date: "2024-11-14",
+      number: "10-2024-0161744",
+      type: "Domestic",
+      title: "METHOD FOR DETECTING ONLINE GROOMING CRIMES USING DEEP LEARNING-BASED NATURAL LANGUAGE PROCESSING MODELS, AND APPARATUS THEREOF",
+      inventors: ["Sangmin Kim", "Byeongcheon Lee", "Jihoon Moon", "Seungmin Rho", "Muazzam Maqsood"],
+      applicant: "Chung-Ang University Industry-Academic Cooperation Foundation"
+    },
+    {
+      date: "2024-04-11",
+      number: "10-2024-0048439",
+      type: "Domestic",
+      title: "Apparatus and method for real-time recognition of voice phishing context during a call",
+      inventors: ["Byeongjun Noh", "Sangmin Kim", "Byeongcheon Lee", "Woonyoung Jeong"],
+      applicant: "Soonchunhyang University Industry-Academic Cooperation Foundation"
+    }
+  ]
 };

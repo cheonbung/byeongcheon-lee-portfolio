@@ -14,10 +14,8 @@ function App() {
   const [language, setLanguage] = useState<Language>('KO');
   const [courseworkTab, setCourseworkTab] = useState<'grad' | 'undergrad'>('grad');
 
-  // 언어 선택에 따른 데이터 로드
   const data = language === 'KO' ? DATA_KO : DATA_EN;
 
-  // Handle scroll spy for active section
   useEffect(() => {
     const handleScroll = () => {
       const sections = ['about', 'education', 'publications', 'patents', 'awards', 'coursework'];
@@ -39,10 +37,8 @@ function App() {
 
   const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
 
-  // Helper to highlight author name
   const formatAuthors = (authors: string[]) => {
     return authors.map((author, index) => {
-      // 본인 이름 확인 로직 (한글/영문 모두 포함)
       const isMe = author.includes('이병천') || author.includes('Byeongcheon Lee') || author.includes('B. Lee');
       return (
         <React.Fragment key={index}>
@@ -101,7 +97,6 @@ function App() {
                 )}
               </div>
 
-              {/* Skills/Languages Summary */}
               <div className="pt-2">
                 <h3 className="font-semibold text-slate-900 mb-3 flex items-center justify-center md:justify-start gap-2">
                   <CheckCircle size={18} className="text-emerald-500" /> {data.ui.languages} & {data.ui.certifications}
@@ -159,7 +154,8 @@ function App() {
                 {data.publications.map((pub, idx) => (
                   <div key={idx} className="p-5 rounded-xl bg-white border border-slate-100 shadow-sm hover:shadow-md hover:border-blue-100 transition-all duration-300">
                     <div className="flex flex-col sm:flex-row justify-between items-start gap-3 mb-2">
-                      <h4 className="font-bold text-slate-800 text-base leading-snug">{pub.title}</h4>
+                      {/* whitespace-pre-line 추가: 줄바꿈 적용 */}
+                      <h4 className="font-bold text-slate-800 text-base leading-snug whitespace-pre-line">{pub.title}</h4>
                       <span className={`shrink-0 px-2.5 py-1 text-[10px] uppercase tracking-wide font-bold rounded-full ${pub.type === 'SCIE' ? 'bg-orange-100 text-orange-700' :
                           pub.type === 'SSCI' ? 'bg-purple-100 text-purple-700' :
                             'bg-slate-100 text-slate-600'
@@ -187,7 +183,8 @@ function App() {
               <div className="space-y-4">
                 {data.conferences.map((conf, idx) => (
                   <div key={idx} className="group relative pl-5 border-l-2 border-slate-200 hover:border-blue-400 transition-colors py-1">
-                    <h4 className="font-medium text-slate-800 text-sm md:text-base leading-snug group-hover:text-blue-700 transition-colors">{conf.title}</h4>
+                    {/* whitespace-pre-line 추가 */}
+                    <h4 className="font-medium text-slate-800 text-sm md:text-base leading-snug group-hover:text-blue-700 transition-colors whitespace-pre-line">{conf.title}</h4>
                     <p className="text-xs md:text-sm text-slate-500 mt-1">{formatAuthors(conf.authors)}</p>
                     <div className="flex flex-wrap gap-x-4 gap-y-1 mt-2 text-xs text-slate-400">
                       <span className="font-medium text-slate-600">{conf.journalOrConference}</span>
@@ -217,7 +214,8 @@ function App() {
                   </div>
                 </div>
                 <div className="flex-1">
-                  <h4 className="font-bold text-slate-900 mb-2 leading-snug">{patent.title}</h4>
+                  {/* whitespace-pre-line 추가 */}
+                  <h4 className="font-bold text-slate-900 mb-2 leading-snug whitespace-pre-line">{patent.title}</h4>
                   <div className="text-sm text-slate-600 mb-3">
                     {formatAuthors(patent.inventors)}
                   </div>
