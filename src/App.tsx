@@ -5,7 +5,7 @@ import { DATA_KO, DATA_EN } from './constants';
 import { Language } from './types';
 import {
   Mail, ExternalLink, Calendar, CheckCircle,
-  Award as AwardIcon, Book, Building2
+  Award as AwardIcon, Book, Building2, Github, Linkedin
 } from 'lucide-react';
 
 function App() {
@@ -89,10 +89,27 @@ function App() {
                   <Mail size={18} className="text-blue-500" />
                   <a href={`mailto:${data.profile.email}`} className="hover:text-blue-700 transition-colors font-medium">{data.profile.email}</a>
                 </div>
+                {/* Website Link */}
                 {data.profile.website !== '-' && (
                   <div className="flex items-center gap-3 justify-center md:justify-start">
                     <ExternalLink size={18} className="text-blue-500" />
                     <a href={data.profile.website} target="_blank" rel="noreferrer" className="hover:text-blue-700 transition-colors">Website</a>
+                  </div>
+                )}
+
+                {/* GitHub Link */}
+                {data.profile.github && (
+                  <div className="flex items-center gap-3 justify-center md:justify-start">
+                    <Github size={18} className="text-blue-500" />
+                    <a href={data.profile.github} target="_blank" rel="noreferrer" className="hover:text-blue-700 transition-colors">GitHub</a>
+                  </div>
+                )}
+
+                {/* LinkedIn Link (Placeholder check) */}
+                {data.profile.linkedin && data.profile.linkedin !== '-' && (
+                  <div className="flex items-center gap-3 justify-center md:justify-start">
+                    <Linkedin size={18} className="text-blue-500" />
+                    <a href={data.profile.linkedin} target="_blank" rel="noreferrer" className="hover:text-blue-700 transition-colors">LinkedIn</a>
                   </div>
                 )}
               </div>
@@ -128,7 +145,12 @@ function App() {
                   <h3 className="font-bold text-lg text-slate-900">{edu.school}</h3>
                   <span className="text-xs font-bold text-blue-600 bg-blue-50 px-2 py-1 rounded-full">{edu.period}</span>
                 </div>
-                <div className="text-slate-800 font-medium text-base">{edu.degree} - <span className="text-slate-600 font-normal">{edu.major}</span></div>
+                <div className="text-slate-800 font-medium text-base">
+                  {edu.degree}
+                  {edu.major && edu.major !== "" && (
+                    <> - <span className="text-slate-600 font-normal">{edu.major}</span></>
+                  )}
+                </div>
                 <div className="flex gap-4 text-sm text-slate-500 mt-2">
                   <span className="flex items-center gap-1 bg-slate-100 px-2 py-0.5 rounded">{edu.status}</span>
                   {edu.advisor && edu.advisor !== '-' && (
@@ -154,7 +176,6 @@ function App() {
                 {data.publications.map((pub, idx) => (
                   <div key={idx} className="p-5 rounded-xl bg-white border border-slate-100 shadow-sm hover:shadow-md hover:border-blue-100 transition-all duration-300">
                     <div className="flex flex-col sm:flex-row justify-between items-start gap-3 mb-2">
-                      {/* whitespace-pre-line 추가: 줄바꿈 적용 */}
                       <h4 className="font-bold text-slate-800 text-base leading-snug whitespace-pre-line">{pub.title}</h4>
                       <span className={`shrink-0 px-2.5 py-1 text-[10px] uppercase tracking-wide font-bold rounded-full ${pub.type === 'SCIE' ? 'bg-orange-100 text-orange-700' :
                           pub.type === 'SSCI' ? 'bg-purple-100 text-purple-700' :
@@ -183,7 +204,6 @@ function App() {
               <div className="space-y-4">
                 {data.conferences.map((conf, idx) => (
                   <div key={idx} className="group relative pl-5 border-l-2 border-slate-200 hover:border-blue-400 transition-colors py-1">
-                    {/* whitespace-pre-line 추가 */}
                     <h4 className="font-medium text-slate-800 text-sm md:text-base leading-snug group-hover:text-blue-700 transition-colors whitespace-pre-line">{conf.title}</h4>
                     <p className="text-xs md:text-sm text-slate-500 mt-1">{formatAuthors(conf.authors)}</p>
                     <div className="flex flex-wrap gap-x-4 gap-y-1 mt-2 text-xs text-slate-400">
@@ -214,7 +234,6 @@ function App() {
                   </div>
                 </div>
                 <div className="flex-1">
-                  {/* whitespace-pre-line 추가 */}
                   <h4 className="font-bold text-slate-900 mb-2 leading-snug whitespace-pre-line">{patent.title}</h4>
                   <div className="text-sm text-slate-600 mb-3">
                     {formatAuthors(patent.inventors)}

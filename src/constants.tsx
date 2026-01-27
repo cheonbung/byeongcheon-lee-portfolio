@@ -1,7 +1,7 @@
 import { PortfolioData } from './types';
 
 // =============================================================================
-// COMMON DATA (Languages, Certifications)
+// COMMON DATA
 // =============================================================================
 
 const COMMON_LANGUAGES = [
@@ -51,7 +51,9 @@ export const DATA_KO: PortfolioData = {
     email: "qudcjs0208@cau.ac.kr",
     website: "-",
     phone: "-",
-    imagePath: "/byeongcheon-lee-portfolio/images/profile.jpg"
+    imagePath: "/byeongcheon-lee-portfolio/images/profile.jpg",
+    github: "https://github.com/cheonbung", // 추가됨
+    linkedin: "-" // 추가됨 (임시)
   },
   education: [
     {
@@ -76,7 +78,7 @@ export const DATA_KO: PortfolioData = {
       period: "2015.03 ~ 2018.02",
       degree: "고교",
       school: "안성고등학교",
-      major: "이공계열",
+      major: "", // 삭제됨 (빈 문자열)
       status: "졸업",
       advisor: "-"
     }
@@ -425,7 +427,9 @@ export const DATA_EN: PortfolioData = {
     email: "qudcjs0208@cau.ac.kr",
     website: "-",
     phone: "-",
-    imagePath: "/byeongcheon-lee-portfolio/images/profile.jpg"
+    imagePath: "/byeongcheon-lee-portfolio/images/profile.jpg",
+    github: "https://github.com/cheonbung", // 추가됨
+    linkedin: "-" // 추가됨 (임시)
   },
   education: [
     {
@@ -450,7 +454,7 @@ export const DATA_EN: PortfolioData = {
       period: "2015.03 ~ 2018.02",
       degree: "High School",
       school: "Anseong High School",
-      major: "-",
+      major: "", // 삭제됨 (빈 문자열)
       status: "Graduation",
       advisor: "-"
     }

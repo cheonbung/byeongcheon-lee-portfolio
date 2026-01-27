@@ -1,5 +1,3 @@
-// src/types.ts (전체 덮어쓰기)
-
 export type Language = 'KO' | 'EN';
 
 export interface BaseData {
@@ -14,7 +12,7 @@ export interface Education {
   major: string;
   status: string;
   advisor?: string;
-  advisorLabel?: string; // "지도교수" or "Advisor"
+  advisorLabel?: string;
 }
 
 export interface Course {
@@ -79,12 +77,14 @@ export interface Award {
 
 export interface Profile {
   name: string;
-  role?: string; // e.g., "M.S. Candidate"
+  role?: string;
   birthDate: string;
   email: string;
   website: string;
   phone: string;
-  imagePath: string; // 이미지 경로 추가
+  imagePath: string;
+  github: string;   // 추가됨
+  linkedin: string; // 추가됨
 }
 
 export interface UIStrings {
