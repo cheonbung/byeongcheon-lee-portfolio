@@ -1,7 +1,7 @@
 import { PortfolioData } from './types';
 
 // =============================================================================
-// COMMON DATA (Languages, Certifications, Awards - Shared unless translation needed)
+// COMMON DATA (Languages, Certifications)
 // =============================================================================
 
 const COMMON_LANGUAGES = [
@@ -22,26 +22,8 @@ const COMMON_CERTIFICATIONS = [
   }
 ];
 
-const COMMON_AWARDS = [
-  {
-    date: "2024.11.27",
-    title: "DID(Decentralized Identity) 비즈니스 모델 특허 아이디어 공모전 (장려상)",
-    issuer: "한국전자거래학회"
-  },
-  {
-    date: "2023.05.19",
-    title: "ASK 2023 학부생논문경진대회 (동상)",
-    issuer: "한국정보처리학회"
-  },
-  {
-    date: "2022.12.16",
-    title: "한국전자거래학회 2022 추계학술대회 (우수논문상)",
-    issuer: "한국전자거래학회"
-  }
-];
-
 // =============================================================================
-// KOREAN DATA (DATA_KO) - Shows Korean + English Titles
+// KOREAN DATA (DATA_KO)
 // =============================================================================
 
 export const DATA_KO: PortfolioData = {
@@ -143,7 +125,33 @@ export const DATA_KO: PortfolioData = {
   },
   languages: COMMON_LANGUAGES,
   certifications: COMMON_CERTIFICATIONS,
-  awards: COMMON_AWARDS,
+  awards: [
+    {
+      date: "2025.11.29",
+      title: "한국전자거래학회 2025 추계학술대회 대학(원)생 아이디어 공모전 (최우수상)",
+      issuer: "한국전자거래학회"
+    },
+    {
+      date: "2025.11.29",
+      title: "한국전자거래학회 2025 추계학술대회 (우수논문상)",
+      issuer: "한국전자거래학회"
+    },
+    {
+      date: "2024.11.27",
+      title: "DID(Decentralized Identity) 비즈니스 모델 특허 아이디어 공모전 (장려상)",
+      issuer: "한국전자거래학회"
+    },
+    {
+      date: "2023.05.19",
+      title: "ASK 2023 학부생논문경진대회 (동상)",
+      issuer: "한국정보처리학회"
+    },
+    {
+      date: "2022.12.16",
+      title: "한국전자거래학회 2022 추계학술대회 (우수논문상)",
+      issuer: "한국전자거래학회"
+    }
+  ],
   publications: [
     {
       date: "2025.12",
@@ -197,9 +205,17 @@ export const DATA_KO: PortfolioData = {
   ],
   conferences: [
     {
+      date: "2025.11.29",
+      type: "Domestic Conference",
+      title: "패턴 보존 기반 생성 모델의 클래스 선택적 언러닝 프레임워크\n(A Class-Selective Unlearning Framework for Pattern-Preserving Generative Models)",
+      authors: ["김상민", "이병천", "박성우", "이미영", "노승민"],
+      journalOrConference: "한국전자거래학회 2025 추계학술대회",
+      note: "우수논문상 수상"
+    },
+    {
       date: "2025.10.25",
       type: "International Conference",
-      title: "패턴 보존 기반 생성 모델의 클래스 선택적 언러닝 프레임워크\n(A Class-Selective Unlearning Framework for Pattern-Preserving Generative Models)",
+      title: "Discriminator-Guided Unlearning A Framework for Selective Forgetting in Conditional GANs\n(패턴 보존 기반 생성 모델의 클래스 선택적 언러닝 프레임워크)",
       authors: ["Byeongcheon Lee", "Sangmin Kim", "Sungwoo Park", "Seungmin Rho", "Miyoung Lee"],
       journalOrConference: "28th European Conference on Artificial Intelligence (ECAI2025)",
       note: "Workshop Paper (TRUST-AI)"
@@ -381,7 +397,7 @@ export const DATA_KO: PortfolioData = {
 };
 
 // =============================================================================
-// ENGLISH DATA (DATA_EN) - Shows English Titles Only
+// ENGLISH DATA (DATA_EN)
 // =============================================================================
 
 export const DATA_EN: PortfolioData = {
@@ -483,7 +499,33 @@ export const DATA_EN: PortfolioData = {
   },
   languages: COMMON_LANGUAGES,
   certifications: COMMON_CERTIFICATIONS,
-  awards: COMMON_AWARDS,
+  awards: [
+    {
+      date: "2025.11.29",
+      title: "University/Graduate Student Idea Competition (Grand Prize)\n(한국전자거래학회 2025 추계학술대회 대학(원)생 아이디어 공모전 최우수상)",
+      issuer: "The Korea Society for Electronic Commerce"
+    },
+    {
+      date: "2025.11.29",
+      title: "The Korea Society for Electronic Commerce Fall Conference 2025 (Best Paper Award)\n(한국전자거래학회 2025 추계학술대회 우수논문상)",
+      issuer: "The Korea Society for Electronic Commerce"
+    },
+    {
+      date: "2024.11.27",
+      title: "DID(Decentralized Identity) Business Model Patent Idea Contest (Encouragement Award)",
+      issuer: "The Korea Society for Electronic Commerce"
+    },
+    {
+      date: "2023.05.19",
+      title: "ASK 2023 Undergraduate Paper Competition (Bronze Award)",
+      issuer: "Korea Information Processing Society"
+    },
+    {
+      date: "2022.12.16",
+      title: "The Korea Society for Electronic Commerce Fall Conference 2022 (Best Paper Award)",
+      issuer: "The Korea Society for Electronic Commerce"
+    }
+  ],
   publications: [
     {
       date: "2025.12",
@@ -536,6 +578,14 @@ export const DATA_EN: PortfolioData = {
     }
   ],
   conferences: [
+    {
+      date: "2025.11.29",
+      type: "Domestic Conference",
+      title: "A Class-Selective Unlearning Framework for Pattern-Preserving Generative Models",
+      authors: ["Sangmin Kim", "Byeongcheon Lee", "Sungwoo Park", "Miyoung Lee", "Seungmin Rho"],
+      journalOrConference: "The Korea Society for Electronic Commerce Fall Conference 2025",
+      note: "Best Paper Award"
+    },
     {
       date: "2025.10.25",
       type: "International Conference",
