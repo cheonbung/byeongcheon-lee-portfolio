@@ -67,11 +67,11 @@ function App() {
         <Section id="about" title="Profile">
           <div className="flex flex-col md:flex-row gap-8 items-start">
             <div className="w-32 h-32 md:w-48 md:h-64 bg-slate-200 rounded-lg shadow-inner flex items-center justify-center shrink-0 overflow-hidden self-center md:self-start">
-               <img 
-                 src="https://picsum.photos/200/300" 
-                 alt="Profile Placeholder" 
-                 className="w-full h-full object-cover opacity-80"
-               />
+              <img
+                src="/byeongcheon-lee-portfolio/images/profile.jpg"
+                alt="Byeongcheon Lee"
+                className="w-full h-full object-cover"
+              />
             </div>
             <div className="flex-1 space-y-4">
               <div>
