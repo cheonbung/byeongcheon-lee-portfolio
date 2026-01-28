@@ -102,6 +102,7 @@ const Sidebar: React.FC<SidebarProps> = ({
             </button>
           </div>
           <div className="text-xs text-slate-500 text-center leading-relaxed">
+            <span className="block mb-1 text-slate-600">{data.ui.lastUpdated}: {data.ui.lastUpdatedDate}</span>
             &copy; {new Date().getFullYear()} {data.profile.name}.
             <br /> All rights reserved.
           </div>

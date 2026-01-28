@@ -5,7 +5,7 @@ import { DATA_KO, DATA_EN } from './constants';
 import { Language } from './types';
 import {
   Mail, ExternalLink, Calendar, CheckCircle,
-  Award as AwardIcon, Book, Building2, Github, Linkedin
+  Award as AwardIcon, Book, Building2, Github, Linkedin, ScrollText, ArrowUpRight, Quote
 } from 'lucide-react';
 
 function App() {
@@ -51,6 +51,13 @@ function App() {
     });
   };
 
+  // 실적 카운트 데이터
+  const stats = [
+    { label: data.ui.stats.journals, count: data.publications.length, icon: Book },
+    { label: data.ui.stats.conferences, count: data.conferences.length, icon: Building2 },
+    { label: data.ui.stats.patents, count: data.patents.length, icon: ScrollText },
+  ];
+
   return (
     <div className="min-h-screen bg-slate-50 flex flex-col lg:flex-row font-sans text-slate-700">
       <Sidebar
@@ -66,71 +73,140 @@ function App() {
 
         {/* Profile Section */}
         <Section id="about" title={data.ui.about}>
-          <div className="flex flex-col md:flex-row gap-8 items-center md:items-start">
-            <div className="w-40 h-40 md:w-48 md:h-64 bg-slate-200 rounded-xl shadow-md overflow-hidden shrink-0 border-4 border-white">
-              <img
-                src={data.profile.imagePath}
-                alt={data.profile.name}
-                className="w-full h-full object-cover"
-              />
+          <div className="flex flex-col md:flex-row gap-8 lg:gap-10 items-start">
+
+            {/* Left Column: Image & Stats */}
+            <div className="flex flex-col gap-5 shrink-0 w-full md:w-auto items-center md:items-stretch">
+              {/* Profile Image - 부드러운 그림자 적용 */}
+              <div className="w-48 h-64 bg-white rounded-2xl shadow-xl overflow-hidden border border-slate-100 relative self-center">
+                <img
+                  src={data.profile.imagePath}
+                  alt={data.profile.name}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+
+              {/* Stats Cards - 디자인 강화 (PC View) */}
+              <div className="hidden md:flex flex-col gap-3 w-full">
+                {stats.map((stat, idx) => {
+                  const Icon = stat.icon;
+                  return (
+                    <div key={idx} className="flex items-center justify-between bg-white border border-slate-100 p-4 rounded-xl shadow-sm hover:shadow-md hover:border-blue-100 transition-all group">
+                      <div className="flex items-center gap-3 text-slate-500 font-bold uppercase text-xs tracking-wider">
+                        <div className="p-1.5 bg-slate-50 rounded-lg group-hover:bg-blue-50 transition-colors">
+                          <Icon size={16} className="group-hover:text-blue-600" />
+                        </div>
+                        {stat.label}
+                      </div>
+                      <div className="text-2xl font-extrabold text-slate-800 group-hover:text-blue-600 transition-colors">{stat.count}</div>
+                    </div>
+                  );
+                })}
+              </div>
             </div>
-            <div className="flex-1 space-y-5 text-center md:text-left w-full">
+
+            {/* Right Column: Profile Info */}
+            <div className="flex-1 space-y-7 w-full">
+
+              {/* Header: Name, Role, Lab */}
               <div>
-                <h1 className="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">{data.profile.name}</h1>
-                <p className="text-lg text-blue-600 font-medium mt-1">{data.profile.role}</p>
+                <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight">{data.profile.name}</h1>
+                <div className="mt-3 space-y-1.5">
+                  <div className="flex flex-wrap items-center gap-2 text-lg">
+                    <span className="text-blue-600 font-bold">{data.profile.role}</span>
+                    <span className="text-slate-300">|</span>
+                    <span className="text-slate-700 font-medium">{data.profile.affiliation}</span>
+                  </div>
+                  {data.profile.lab && (
+                    <a href={data.profile.labUrl} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-slate-500 hover:text-blue-600 transition-colors font-medium group text-sm">
+                      <div className="p-1 bg-slate-100 rounded group-hover:bg-blue-50 transition-colors"><Building2 size={14} /></div>
+                      <span>{data.profile.lab}</span>
+                      <ExternalLink size={12} className="opacity-50 group-hover:opacity-100" />
+                    </a>
+                  )}
+                </div>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm bg-slate-50 p-4 rounded-lg border border-slate-100">
-                <div className="flex items-center gap-3 justify-center md:justify-start">
-                  <Calendar size={18} className="text-blue-500" />
-                  <span>{data.profile.birthDate}</span>
+              {/* Bio (Self Introduction) - [수정됨] 아이콘과 텍스트 분리 */}
+              <div className="relative bg-white p-6 rounded-2xl border border-slate-100 shadow-sm">
+                <Quote className="absolute top-6 left-5 text-blue-100 w-8 h-8 fill-blue-50" />
+                {/* pl-10을 주어 텍스트가 아이콘을 피하도록 설정 */}
+                <div className="relative z-10 text-slate-700 leading-8 text-base break-keep pl-10">
+                  {data.profile.bio}
                 </div>
-                <div className="flex items-center gap-3 justify-center md:justify-start">
-                  <Mail size={18} className="text-blue-500" />
-                  <a href={`mailto:${data.profile.email}`} className="hover:text-blue-700 transition-colors font-medium">{data.profile.email}</a>
-                </div>
-                {/* Website Link */}
-                {data.profile.website !== '-' && (
-                  <div className="flex items-center gap-3 justify-center md:justify-start">
-                    <ExternalLink size={18} className="text-blue-500" />
-                    <a href={data.profile.website} target="_blank" rel="noreferrer" className="hover:text-blue-700 transition-colors">Website</a>
-                  </div>
-                )}
+              </div>
 
-                {/* GitHub Link */}
+              {/* Research Interests Tags - 디자인 다듬기 */}
+              <div className="flex flex-wrap gap-2.5">
+                {data.profile.interests.map((interest, idx) => (
+                  <span key={idx} className="px-3.5 py-1.5 bg-indigo-50/80 text-indigo-600 rounded-full text-sm font-semibold border border-indigo-100/50 hover:bg-indigo-100 transition-colors cursor-default">
+                    #{interest}
+                  </span>
+                ))}
+              </div>
+
+              {/* Contact & Info Box */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                <div className="flex items-center gap-3 p-3.5 rounded-xl border border-slate-100 bg-white shadow-sm hover:border-blue-100 transition-all">
+                  <div className="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-blue-600 shrink-0">
+                    <Mail size={18} />
+                  </div>
+                  <div className="flex flex-col min-w-0">
+                    <span className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Email</span>
+                    <a href={`mailto:${data.profile.email}`} className="text-sm font-bold text-slate-700 hover:text-blue-600 truncate">{data.profile.email}</a>
+                  </div>
+                </div>
+
                 {data.profile.github && (
-                  <div className="flex items-center gap-3 justify-center md:justify-start">
-                    <Github size={18} className="text-blue-500" />
-                    <a href={data.profile.github} target="_blank" rel="noreferrer" className="hover:text-blue-700 transition-colors">GitHub</a>
+                  <div className="flex items-center gap-3 p-3.5 rounded-xl border border-slate-100 bg-white shadow-sm hover:border-blue-100 transition-all">
+                    <div className="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-700 shrink-0">
+                      <Github size={18} />
+                    </div>
+                    <div className="flex flex-col">
+                      <span className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">GitHub</span>
+                      <a href={data.profile.github} target="_blank" rel="noreferrer" className="text-sm font-bold text-slate-700 hover:text-blue-600 flex items-center gap-1">
+                        Visit Profile <ArrowUpRight size={12} />
+                      </a>
+                    </div>
                   </div>
                 )}
 
-                {/* LinkedIn Link (Placeholder check) */}
-                {data.profile.linkedin && data.profile.linkedin !== '-' && (
-                  <div className="flex items-center gap-3 justify-center md:justify-start">
-                    <Linkedin size={18} className="text-blue-500" />
-                    <a href={data.profile.linkedin} target="_blank" rel="noreferrer" className="hover:text-blue-700 transition-colors">LinkedIn</a>
+                <div className="flex items-start gap-3 p-4 rounded-xl border border-slate-100 bg-white shadow-sm sm:col-span-2">
+                  <div className="w-10 h-10 rounded-full bg-emerald-50 flex items-center justify-center text-emerald-600 shrink-0 mt-0.5">
+                    <CheckCircle size={18} />
                   </div>
-                )}
-              </div>
-
-              <div className="pt-2">
-                <h3 className="font-semibold text-slate-900 mb-3 flex items-center justify-center md:justify-start gap-2">
-                  <CheckCircle size={18} className="text-emerald-500" /> {data.ui.languages} & {data.ui.certifications}
-                </h3>
-                <div className="flex flex-wrap gap-2 justify-center md:justify-start">
-                  {data.languages.map((lang, idx) => (
-                    <span key={idx} className="px-3 py-1 bg-blue-50 text-blue-700 rounded-full text-xs font-semibold border border-blue-100 shadow-sm">
-                      {lang.name}: {lang.score}
-                    </span>
-                  ))}
-                  {data.certifications.map((cert, idx) => (
-                    <span key={idx} className="px-3 py-1 bg-emerald-50 text-emerald-700 rounded-full text-xs font-semibold border border-emerald-100 shadow-sm">
-                      {cert.name}
-                    </span>
-                  ))}
+                  <div className="flex flex-col w-full">
+                    <span className="text-[10px] text-slate-400 font-bold uppercase tracking-wider mb-2">Languages & Certifications</span>
+                    <div className="flex flex-wrap gap-2">
+                      {data.languages.map((lang, idx) => (
+                        <span key={idx} className="px-2.5 py-1 bg-slate-50 text-slate-700 rounded-md text-xs font-semibold border border-slate-200">
+                          {lang.name}: <span className="text-blue-600">{lang.score}</span>
+                        </span>
+                      ))}
+                      {data.certifications.map((cert, idx) => (
+                        <span key={idx} className="px-2.5 py-1 bg-slate-50 text-slate-700 rounded-md text-xs font-semibold border border-slate-200">
+                          {cert.name}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
                 </div>
               </div>
+
+              {/* Stats for Mobile only */}
+              <div className="grid grid-cols-3 gap-3 md:hidden pt-4 border-t border-slate-100">
+                {stats.map((stat, idx) => {
+                  const Icon = stat.icon;
+                  return (
+                    <div key={idx} className="bg-white p-3 rounded-xl text-center border border-slate-100 shadow-sm">
+                      <div className="flex justify-center mb-1 text-slate-400"><Icon size={20} /></div>
+                      <div className="text-2xl font-extrabold text-blue-600">{stat.count}</div>
+                      <div className="text-[10px] text-slate-500 font-bold uppercase">{stat.label}</div>
+                    </div>
+                  );
+                })}
+              </div>
+
             </div>
           </div>
         </Section>
@@ -228,7 +304,7 @@ function App() {
             {data.patents.map((patent, idx) => (
               <div key={idx} className="flex flex-col md:flex-row gap-5 p-5 border border-slate-100 rounded-xl bg-white shadow-sm hover:shadow-md transition-all">
                 <div className="shrink-0">
-                  <div className={`w-12 h-12 rounded-xl flex items-center justify-center font-bold text-white text-sm shadow-sm ${patent.type === 'PCT' ? 'bg-indigo-500' : 'bg-slate-500'
+                  <div className={`w-auto px-3 min-w-[3rem] h-12 rounded-xl flex items-center justify-center font-bold text-white text-sm shadow-sm ${patent.type === 'PCT' ? 'bg-indigo-500' : 'bg-slate-500'
                     }`}>
                     {patent.type}
                   </div>

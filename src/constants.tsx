@@ -1,3 +1,4 @@
+import React from 'react';
 import { PortfolioData } from './types';
 
 // =============================================================================
@@ -22,6 +23,14 @@ const COMMON_CERTIFICATIONS = [
   }
 ];
 
+const COMMON_INTERESTS = [
+  "Machine Unlearning",
+  "Trustworthy AI",
+  "Anomaly Detection",
+  "Time Series Analysis",
+  "Generative Model Security"
+];
+
 // =============================================================================
 // KOREAN DATA (DATA_KO)
 // =============================================================================
@@ -42,18 +51,36 @@ export const DATA_KO: PortfolioData = {
     confPresentations: "학술대회 발표",
     gradCourses: "대학원",
     undergradCourses: "학부",
-    designedBy: "Designed for academic presentation."
+    designedBy: "Designed for academic presentation.",
+    lastUpdated: "최종 업데이트",
+    lastUpdatedDate: "2026.01.28",
+    stats: {
+      journals: "저널 논문",
+      conferences: "학술대회",
+      patents: "특허"
+    }
   },
   profile: {
     name: "이병천",
     role: "박사 과정",
+    affiliation: "중앙대학교 융합보안학과",
+    lab: "Security Visual Intelligence Lab (SVIL)",
+    labUrl: "https://security-visual-intelligence-lab-ho.vercel.app/",
     birthDate: "1999.02.08",
     email: "qudcjs0208@cau.ac.kr",
     website: "-",
     phone: "-",
     imagePath: "/images/profile.jpg",
     github: "https://github.com/cheonbung",
-    linkedin: "-"
+    linkedin: "-",
+    interests: COMMON_INTERESTS,
+    bio: (
+      <>
+        인공지능의 보안과 신뢰성을 연구하는 <strong className="text-slate-900 font-bold">이병천(Byeongcheon Lee)</strong>입니다.
+        <br /><br />
+        현재 중앙대학교 융합보안학과 Security Visual Intelligence Lab(SVIL)에서 노승민 교수님의 지도 아래 박사 과정을 진행 중입니다. 주요 연구 분야는 생성 모델 언러닝(Generative Model Machine Unlearning), 시계열 이상탐지(Time Series Anomaly Detection) 및 보안 컴퓨터 비전(Security Computer Vision)입니다. 다수의 SCIE 논문 게재와 특허 출원 경험을 바탕으로, 안전하고 신뢰할 수 있는 실무적 AI 보안 솔루션을 지향합니다.
+      </>
+    )
   },
   education: [
     {
@@ -338,7 +365,7 @@ export const DATA_KO: PortfolioData = {
       title: "Multimedia Big Data Analytics: A Survey and Data Analytics for Bioinformatics and Biomedical Discoveries",
       authors: ["B. Lee", "E. Kim", "Y. Lee", "J. Seo", "J. Moon"],
       journalOrConference: "한국전자거래학회 2022 추계학술대회",
-      note: "우수논문상 수상"
+      note: "Best Paper Award"
     },
     {
       date: "2022.12.16",
@@ -427,18 +454,36 @@ export const DATA_EN: PortfolioData = {
     confPresentations: "Conference Presentations",
     gradCourses: "Graduate",
     undergradCourses: "Undergraduate",
-    designedBy: "Designed for academic presentation."
+    designedBy: "Designed for academic presentation.",
+    lastUpdated: "Last Updated",
+    lastUpdatedDate: "2026.01.28",
+    stats: {
+      journals: "Journals",
+      conferences: "Conferences",
+      patents: "Patents"
+    }
   },
   profile: {
     name: "Byeongcheon Lee",
     role: "Ph.D. Student",
+    affiliation: "Dept. of Convergence Security, Chung-Ang Univ.",
+    lab: "Security Visual Intelligence Lab (SVIL)",
+    labUrl: "https://security-visual-intelligence-lab-ho.vercel.app/",
     birthDate: "1999.02.08",
     email: "qudcjs0208@cau.ac.kr",
     website: "-",
     phone: "-",
     imagePath: "/images/profile.jpg",
     github: "https://github.com/cheonbung",
-    linkedin: "-"
+    linkedin: "-",
+    interests: COMMON_INTERESTS,
+    bio: (
+      <>
+        I am <strong className="text-slate-900 font-bold">Byeongcheon Lee</strong>, a researcher dedicated to the Security and Trustworthiness of AI.
+        <br /><br />
+        I am currently a Ph.D. student at <strong className="text-slate-900 font-bold">Security Visual Intelligence Lab (SVIL)</strong>, Chung-Ang University, advised by Prof. Seungmin Rho. My primary research interests include Generative Model Machine Unlearning, Time Series Anomaly Detection, and <strong className="text-slate-900 font-bold">Security Computer Vision</strong>. Building on my experience with multiple SCIE publications and patent applications, I aim to develop secure and reliable practical AI security solutions.
+      </>
+    )
   },
   education: [
     {

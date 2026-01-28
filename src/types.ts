@@ -1,3 +1,5 @@
+import React from 'react';
+
 export type Language = 'KO' | 'EN';
 
 export interface BaseData {
@@ -78,13 +80,18 @@ export interface Award {
 export interface Profile {
   name: string;
   role?: string;
+  affiliation?: string; // [추가] 소속 (학과 등)
+  lab?: string;         // 연구실 이름
+  labUrl?: string;      // 연구실 링크
   birthDate: string;
   email: string;
   website: string;
   phone: string;
   imagePath: string;
-  github: string;   // 추가됨
-  linkedin: string; // 추가됨
+  github: string;
+  linkedin: string;
+  interests: string[];
+  bio: React.ReactNode; // [수정] string -> React.ReactNode (줄바꿈/볼드 처리를 위해)
 }
 
 export interface UIStrings {
@@ -103,6 +110,13 @@ export interface UIStrings {
   gradCourses: string;
   undergradCourses: string;
   designedBy: string;
+  lastUpdated: string;
+  lastUpdatedDate: string;
+  stats: {
+    journals: string;
+    conferences: string;
+    patents: string;
+  }
 }
 
 export interface PortfolioData {
