@@ -51,7 +51,7 @@ export const DATA_KO: PortfolioData = {
     email: "qudcjs0208@cau.ac.kr",
     website: "-",
     phone: "-",
-    imagePath: "/byeongcheon-lee-portfolio/images/profile.jpg",
+    imagePath: "/images/profile.jpg",
     github: "https://github.com/cheonbung",
     linkedin: "-"
   },
@@ -436,7 +436,7 @@ export const DATA_EN: PortfolioData = {
     email: "qudcjs0208@cau.ac.kr",
     website: "-",
     phone: "-",
-    imagePath: "/byeongcheon-lee-portfolio/images/profile.jpg",
+    imagePath: "/images/profile.jpg",
     github: "https://github.com/cheonbung",
     linkedin: "-"
   },
