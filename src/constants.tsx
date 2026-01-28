@@ -1,7 +1,7 @@
 import { PortfolioData } from './types';
 
 // =============================================================================
-// COMMON DATA
+// COMMON DATA (Languages, Certifications)
 // =============================================================================
 
 const COMMON_LANGUAGES = [
@@ -46,18 +46,27 @@ export const DATA_KO: PortfolioData = {
   },
   profile: {
     name: "이병천",
-    role: "석사 과정",
+    role: "박사 과정",
     birthDate: "1999.02.08",
     email: "qudcjs0208@cau.ac.kr",
     website: "-",
     phone: "-",
     imagePath: "/byeongcheon-lee-portfolio/images/profile.jpg",
-    github: "https://github.com/cheonbung", // 추가됨
-    linkedin: "-" // 추가됨 (임시)
+    github: "https://github.com/cheonbung",
+    linkedin: "-"
   },
   education: [
     {
-      period: "2024.03 ~ 2026.02 (예정)",
+      period: "2026.03 ~ 현재",
+      degree: "박사",
+      school: "중앙대학교",
+      major: "융합보안학과 산업보안기술전공",
+      status: "재학",
+      advisor: "노승민",
+      advisorLabel: "지도교수"
+    },
+    {
+      period: "2024.03 ~ 2026.02",
       degree: "석사",
       school: "중앙대학교",
       major: "융합보안학과 산업보안기술전공",
@@ -78,7 +87,7 @@ export const DATA_KO: PortfolioData = {
       period: "2015.03 ~ 2018.02",
       degree: "고교",
       school: "안성고등학교",
-      major: "", // 삭제됨 (빈 문자열)
+      major: "",
       status: "졸업",
       advisor: "-"
     }
@@ -422,22 +431,31 @@ export const DATA_EN: PortfolioData = {
   },
   profile: {
     name: "Byeongcheon Lee",
-    role: "M.S. Candidate",
+    role: "Ph.D. Student",
     birthDate: "1999.02.08",
     email: "qudcjs0208@cau.ac.kr",
     website: "-",
     phone: "-",
     imagePath: "/byeongcheon-lee-portfolio/images/profile.jpg",
-    github: "https://github.com/cheonbung", // 추가됨
-    linkedin: "-" // 추가됨 (임시)
+    github: "https://github.com/cheonbung",
+    linkedin: "-"
   },
   education: [
     {
-      period: "2024.03 ~ 2026.02 (Expected)",
+      period: "2026.03 ~ Present",
+      degree: "Ph.D.",
+      school: "Chung-Ang University",
+      major: "Dept. of Convergence Security (Industrial Security Tech)",
+      status: "Student",
+      advisor: "Seungmin Rho",
+      advisorLabel: "Advisor"
+    },
+    {
+      period: "2024.03 ~ 2026.02",
       degree: "Master's Degree",
       school: "Chung-Ang University",
       major: "Dept. of Convergence Security (Industrial Security Tech)",
-      status: "Graduation",
+      status: "Graduated",
       advisor: "Seungmin Rho",
       advisorLabel: "Advisor"
     },
@@ -454,7 +472,7 @@ export const DATA_EN: PortfolioData = {
       period: "2015.03 ~ 2018.02",
       degree: "High School",
       school: "Anseong High School",
-      major: "", // 삭제됨 (빈 문자열)
+      major: "-",
       status: "Graduation",
       advisor: "-"
     }
